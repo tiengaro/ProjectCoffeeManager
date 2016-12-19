@@ -34,7 +34,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtGiaBan = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtTenSP = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.cbbLoaiSP = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -96,7 +96,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtGiaBan);
-            this.groupBox1.Controls.Add(this.textBoxX1);
+            this.groupBox1.Controls.Add(this.txtTenSP);
             this.groupBox1.Controls.Add(this.cbbLoaiSP);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -121,18 +121,17 @@
             this.txtGiaBan.Size = new System.Drawing.Size(155, 22);
             this.txtGiaBan.TabIndex = 33;
             // 
-            // textBoxX1
+            // txtTenSP
             // 
             // 
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Location = new System.Drawing.Point(123, 28);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(155, 22);
-            this.textBoxX1.TabIndex = 30;
-            this.textBoxX1.Text = "txtTenSP";
+            this.txtTenSP.Border.Class = "TextBoxBorder";
+            this.txtTenSP.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTenSP.Location = new System.Drawing.Point(123, 28);
+            this.txtTenSP.Name = "txtTenSP";
+            this.txtTenSP.Size = new System.Drawing.Size(155, 22);
+            this.txtTenSP.TabIndex = 30;
             // 
             // cbbLoaiSP
             // 
@@ -335,7 +334,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevComponents.DotNetBar.Controls.TextBoxX txtGiaBan;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtTenSP;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbbLoaiSP;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
