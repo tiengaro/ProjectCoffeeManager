@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication3
+﻿namespace ProjectCoffeeManager.View
 {
     partial class frmQuanLyHoaDon
     {
