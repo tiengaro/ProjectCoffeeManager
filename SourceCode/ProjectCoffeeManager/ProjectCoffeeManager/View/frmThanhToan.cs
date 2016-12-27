@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace ProjectCoffeeManager.View
 {
-    public partial class frmThanhToan : Form
+    public partial class frmThanhToan: Form
     {
         public frmThanhToan()
         {
