@@ -16,5 +16,7 @@ namespace ProjectCoffeeManager.View
         {
             InitializeComponent();
         }
+
+        
     }
 }
