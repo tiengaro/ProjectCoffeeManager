@@ -22,5 +22,18 @@ namespace ProjectCoffeeManager.Control
             //Trả về giá trị Datatable
             return dt;
         }
+        /// <summary>
+        /// Lấy sản phẩm theo từng loại
+        /// </summary>
+        /// <param name="loaisp">Là loại sản phẩm cần load</param>
+        /// <returns></returns>
+        public static DataTable getSanPhambyLoaiSP(string loaisp)
+        {
+            //Câu Lệnh truy vấn SQL
+            string query = "select * from SanPham where TenLoaiSanPham = " + loaisp;
+            DataTable dt = Connector.getData(query);
+            //Trả về giá trị Datatable
+            return dt;
+        }
     }
 }
