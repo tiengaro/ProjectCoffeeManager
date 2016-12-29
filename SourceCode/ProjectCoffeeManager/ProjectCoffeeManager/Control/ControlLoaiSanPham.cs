@@ -30,7 +30,7 @@ namespace ProjectCoffeeManager.Control
         public static DataTable getSanPhambyLoaiSP(string loaisp)
         {
             //Câu Lệnh truy vấn SQL
-            string query = "select * from SanPham where TenLoaiSanPham = " + loaisp;
+            string query = "select * from SanPham where tenLoaiSanPham = " + loaisp;
             DataTable dt = Connector.getData(query);
             //Trả về giá trị Datatable
             return dt;
