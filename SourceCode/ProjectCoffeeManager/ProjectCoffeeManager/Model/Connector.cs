@@ -12,11 +12,8 @@ namespace ProjectCoffeeManager.Model
     public class Connector
     {
         //Chuỗi Sever chưa tên Server SQL
-        static string Server = ".\\SQLEXPRESS";
-        //Chuỗi Data chứa Tên Cơ sở dữ liệu 
-        static string Data = "QLCafe";
         //Chuối kết nối vào SQL
-        static string KetNoi = "Data source = " + Server + "; Database = " + Data + ";Integrated Security = True ";
+        static string KetNoi = @"Data Source=DESKTOP-5NI4TKC\SQLEXPRESS;Initial Catalog = QLCafe; Integrated Security = True";
 
         /// <summary>
         /// Thực thi Thêm, Sửa, Xóa tổng quát

@@ -17,13 +17,6 @@ namespace ProjectCoffeeManager.View
             InitializeComponent();
         }
 
-        private void frmQuanLyLoaiSanPham_Load(object sender, EventArgs e)
-        {
-            loadLoaiSP();
-            txtTenLoai.Focus();
-            btnCapNhat.Enabled = false;
-            btnXoa.Enabled = false;
-        }
         /// <summary>
         /// Hàm load loại sản phẩm từ sql lên list view danh sách
         /// </summary>
@@ -38,6 +31,15 @@ namespace ProjectCoffeeManager.View
 
                 lstDanhSach.Items.Add(item);
             }
+        }
+
+        private void frmQuanLyLoaiSanPham_Load_1(object sender, EventArgs e)
+        {
+            loadLoaiSP();
+            txtTenLoai.Focus();
+            btnCapNhat.Enabled = false;
+            btnXoa.Enabled = false;
+
         }
     }
 }

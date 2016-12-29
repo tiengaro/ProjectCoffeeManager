@@ -288,6 +288,7 @@
             this.Controls.Add(this.label4);
             this.Name = "frmQuanLyLoaiSanPham";
             this.Text = "frmQuanLyLoaiSanPham";
+            this.Load += new System.EventHandler(this.frmQuanLyLoaiSanPham_Load_1);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
