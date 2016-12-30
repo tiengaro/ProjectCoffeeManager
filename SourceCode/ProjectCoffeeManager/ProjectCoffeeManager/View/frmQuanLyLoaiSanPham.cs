@@ -17,9 +17,7 @@ namespace ProjectCoffeeManager.View
             InitializeComponent();
         }
 
-        /// <summary>
         /// Hàm load loại sản phẩm từ sql lên list view danh sách
-        /// </summary>
         private void loadLoaiSP()
         {
             lstDanhSach.Items.Clear();
@@ -40,6 +38,25 @@ namespace ProjectCoffeeManager.View
             btnCapNhat.Enabled = false;
             btnXoa.Enabled = false;
 
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        /// Hàm đưa dữ liệu từ listview lên textbox
+        private void lstDanhSach_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int sodongchon = lstDanhSach.SelectedIndices.Count;
+            if (sodongchon == 1)
+            {
+                int vitrichon = lstDanhSach.SelectedIndices[0];
+                txtMaLoai.Text = lstDanhSach.Items[vitrichon].SubItems[0].Text;
+                txtTenLoai.Text = lstDanhSach.Items[vitrichon].SubItems[1].Text;
+            }
+            btnCapNhat.Enabled = true;
+            btnXoa.Enabled = true;
         }
     }
 }

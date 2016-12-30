@@ -80,6 +80,7 @@
             this.btnThoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnThoat.TabIndex = 4;
             this.btnThoat.Text = "Đóng";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnCapNhat
             // 
@@ -149,6 +150,7 @@
             this.lstDanhSach.TabIndex = 0;
             this.lstDanhSach.UseCompatibleStateImageBehavior = false;
             this.lstDanhSach.View = System.Windows.Forms.View.Details;
+            this.lstDanhSach.SelectedIndexChanged += new System.EventHandler(this.lstDanhSach_SelectedIndexChanged);
             // 
             // columnHeader3
             // 
