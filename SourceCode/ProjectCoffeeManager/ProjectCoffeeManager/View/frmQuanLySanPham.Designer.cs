@@ -197,6 +197,7 @@
             this.btnClose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Đóng";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnXoa
             // 
@@ -209,6 +210,7 @@
             this.btnXoa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Xóa Sản Phẩm";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnCapNhat
             // 
@@ -221,6 +223,7 @@
             this.btnCapNhat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCapNhat.TabIndex = 1;
             this.btnCapNhat.Text = "Cập Nhật Sản Phẩm";
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnThem
             // 
@@ -233,6 +236,7 @@
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm Sản Phẩm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // groupBox3
             // 
@@ -268,6 +272,8 @@
             this.lstDanhSachSP.UseCompatibleStateImageBehavior = false;
             this.lstDanhSachSP.View = System.Windows.Forms.View.Details;
             this.lstDanhSachSP.SelectedIndexChanged += new System.EventHandler(this.lstDanhSachSP_SelectedIndexChanged);
+            this.lstDanhSachSP.Click += new System.EventHandler(this.lstDanhSachSP_Click);
+            this.lstDanhSachSP.DoubleClick += new System.EventHandler(this.lstDanhSachSP_DoubleClick);
             // 
             // columnHeader5
             // 
@@ -316,6 +322,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmQuanLySanPham";
             this.Text = "frmQuanLySanPham";
+            this.Load += new System.EventHandler(this.frmQuanLySanPham_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

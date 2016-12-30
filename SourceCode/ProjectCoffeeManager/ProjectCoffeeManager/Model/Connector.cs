@@ -13,7 +13,7 @@ namespace ProjectCoffeeManager.Model
     {
         //Chuỗi Sever chưa tên Server SQL
         //Chuối kết nối vào SQL
-        static string KetNoi = @"Data Source=DESKTOP-5NI4TKC\SQLEXPRESS;Initial Catalog = QLCafe; Integrated Security = True";
+        static string KetNoi = @"Data Source=LAITRAN;Initial Catalog = QLCafe; Integrated Security = True";
 
         /// <summary>
         /// Thực thi Thêm, Sửa, Xóa tổng quát
