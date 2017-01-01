@@ -10,10 +10,7 @@ namespace ProjectCoffeeManager.Control
 {
     public class ControlLoaiSanPham
     {
-        /// <summary>
         /// Lấy dữ liệu từ Database lên Giao diện
-        /// </summary>
-        /// <returns>Trả về kiểu DataTable</returns>
         public static DataTable getLoaiSanPham()
         {
             //Câu Lệnh truy vấn SQL
@@ -22,11 +19,8 @@ namespace ProjectCoffeeManager.Control
             //Trả về giá trị Datatable
             return dt;
         }
-        /// <summary>
+
         /// Lấy sản phẩm theo từng loại
-        /// </summary>
-        /// <param name="loaisp">Là loại sản phẩm cần load</param>
-        /// <returns></returns>
         public static DataTable getSanPhambyLoaiSP(string loaisp)
         {
             //Câu Lệnh truy vấn SQL
@@ -35,5 +29,15 @@ namespace ProjectCoffeeManager.Control
             //Trả về giá trị Datatable
             return dt;
         }
+        /// Thêm Loại Sản Phẩm
+        public static void insertLoaiSanPham(string tenlsp)
+        {
+            //Câu Lệnh truy vấn SQL
+            string query = "insert into LoaiSanPham values (N'" + tenlsp + "')";
+            Connector.updateInsertDelete(query);
+        }
+
+
+
     }
 }

@@ -58,5 +58,41 @@ namespace ProjectCoffeeManager.View
             btnCapNhat.Enabled = true;
             btnXoa.Enabled = true;
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            //xử lý nếu chưa nhập tên loại sản phẩm
+            if (txtTenLoai.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập tên loại sản phẩm cần thêm.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            //Xử lý xem sản phẩm đó đã có trong danh sách sản phẩm chưa
+            else if (!KiemTraLoaiSanPham())
+            {
+                MessageBox.Show("Loại Sản phẩm bạn vừa thêm đã có sẵn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                txtTenLoai.Clear();
+            }
+            //Nếu tất cả trường hợp trên đều không có thì cho phép người dùng thêm loại sản phẩm
+            else
+            {
+                DialogResult tl = MessageBox.Show("Bạn có muốn thêm loại sản phầm.", "Thông báo.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (tl == DialogResult.Yes)
+                {
+                    Control.ControlLoaiSanPham.insertLoaiSanPham(txtTenLoai.Text);
+                    txtTenLoai.Clear();
+                    lstDanhSach.Items.Clear();
+                    loadLoaiSP();
+                }
+                txtTenLoai.Clear();
+            }
+            btnCapNhat.Enabled = false;
+            btnXoa.Enabled = false;
+        }
+        private bool KiemTraLoaiSanPham()
+        {
+            string query = "select * from LoaiSanPham where TenLoaiSanPham = N'" + txtTenLoai.Text + "'";
+            DataTable dt = Model.Connector.getData(query);
+            return dt.Rows.Count > 0 ? false : true;
+        }
     }
 }

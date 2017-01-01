@@ -117,6 +117,7 @@
             this.btnThem.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnThem.TabIndex = 4;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // groupBox3
             // 
@@ -200,6 +201,7 @@
             this.txtMaLoai.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtMaLoai.Location = new System.Drawing.Point(85, 36);
             this.txtMaLoai.Name = "txtMaLoai";
+            this.txtMaLoai.ReadOnly = true;
             this.txtMaLoai.Size = new System.Drawing.Size(127, 22);
             this.txtMaLoai.TabIndex = 2;
             // 
