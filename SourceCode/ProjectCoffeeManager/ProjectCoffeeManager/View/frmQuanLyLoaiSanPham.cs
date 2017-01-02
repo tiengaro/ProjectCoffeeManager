@@ -94,5 +94,35 @@ namespace ProjectCoffeeManager.View
             DataTable dt = Model.Connector.getData(query);
             return dt.Rows.Count > 0 ? false : true;
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            int sodongchon = lstDanhSach.SelectedIndices.Count;
+            //xử lý nếu đã chọn 1 loại sản phẩm trong danh sách loại sản phẩm
+            if (sodongchon == 1)
+            {
+                try
+                {
+                    int vitrichon = lstDanhSach.SelectedIndices[0];
+                    string masp = lstDanhSach.Items[vitrichon].SubItems[0].Text;
+                    DialogResult tl = MessageBox.Show("Bạn có muốn xóa loại sản phẩm.", "Cảnh báo.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (tl == DialogResult.Yes)
+                    {
+                        Control.ControlLoaiSanPham.deleteLoaiSanPham(txtMaLoai.Text);
+                        lstDanhSach.Items.Clear();
+                        loadLoaiSP();
+                    }
+                    txtMaLoai.Clear();
+                    txtTenLoai.Clear();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Không thể xóa loại sản phẩm này.", "Cảnh báo.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
+            btnCapNhat.Enabled = false;
+            btnXoa.Enabled = false;
+        }
     }
 }

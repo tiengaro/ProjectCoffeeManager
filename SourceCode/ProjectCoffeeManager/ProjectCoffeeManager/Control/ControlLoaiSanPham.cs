@@ -37,7 +37,13 @@ namespace ProjectCoffeeManager.Control
             Connector.updateInsertDelete(query);
         }
 
-
+        /// Xóa loại sản phẩm
+        public static void deleteLoaiSanPham(string malsp)
+        {
+            //Câu Lệnh truy vấn SQL
+            string query = "delete LoaiSanPham where MaLoaiSanPham = " + malsp;
+            Connector.updateInsertDelete(query);
+        }
 
     }
 }
