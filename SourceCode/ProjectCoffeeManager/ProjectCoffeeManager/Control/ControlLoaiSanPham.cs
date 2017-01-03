@@ -37,6 +37,15 @@ namespace ProjectCoffeeManager.Control
             Connector.updateInsertDelete(query);
         }
 
+        /// Cập Nhật loại sản phẩm
+
+        public static void updateLoaiSanPham(string malsp, string tenlsp)
+        {
+            //Câu Lệnh truy vấn SQL
+            string query = "update LoaiSanPham set TenLoaiSanPham = N'" + tenlsp + "' where MaLoaiSanPham = " + malsp;
+            Connector.updateInsertDelete(query);
+        }
+
         /// Xóa loại sản phẩm
         public static void deleteLoaiSanPham(string malsp)
         {

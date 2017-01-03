@@ -124,5 +124,32 @@ namespace ProjectCoffeeManager.View
             btnCapNhat.Enabled = false;
             btnXoa.Enabled = false;
         }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            int sodongchon = lstDanhSach.SelectedIndices.Count;
+            //xử lý nếu người dùng đã chọn 1 loại sản phẩm trong danh sách sản phẩm
+            if (sodongchon == 1)
+            {
+                if (txtTenLoai.Text == "")
+                {
+                    MessageBox.Show("Bạn chưa nhập tên loại sản phẩm.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+                else
+                {
+                    DialogResult tl = MessageBox.Show("Bạn có muốn cập nhật loại sản phẩm.", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (tl == DialogResult.Yes)
+                    {
+                        int vitri = lstDanhSach.SelectedIndices[0];
+                        Control.ControlLoaiSanPham.updateLoaiSanPham(txtMaLoai.Text, txtTenLoai.Text);
+                        lstDanhSach.Items.Clear();
+                        loadLoaiSP();
+                    }
+                }
+            }
+            btnCapNhat.Enabled = false;
+            btnXoa.Enabled = false;
+            
+        }
     }
 }
