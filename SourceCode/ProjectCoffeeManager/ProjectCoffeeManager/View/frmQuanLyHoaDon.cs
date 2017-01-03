@@ -77,5 +77,23 @@ namespace ProjectCoffeeManager.View
         {
             Application.Exit();
         }
+
+        private void cbbLoaiSanPham_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string MaSP = cbbLoaiSanPham.SelectedValue.ToString();
+
+            DataTable dt = ControlSanPham.getSanPhambyMaLoaiSP(MaSP);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+
+                ListViewItem item = new ListViewItem(dt.Rows[i].ItemArray[0].ToString());
+                item.SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+                item.SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+                item.SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+
+                lstThucDon.Items.Add(item);
+            }
+        }
     }
 }
