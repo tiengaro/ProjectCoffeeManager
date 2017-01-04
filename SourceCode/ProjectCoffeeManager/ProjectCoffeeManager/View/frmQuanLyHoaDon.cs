@@ -80,6 +80,8 @@ namespace ProjectCoffeeManager.View
 
         private void cbbLoaiSanPham_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            lstThucDon.Items.Clear();
+
             string MaSP = cbbLoaiSanPham.SelectedValue.ToString();
 
             DataTable dt = ControlSanPham.getSanPhambyMaLoaiSP(MaSP);
