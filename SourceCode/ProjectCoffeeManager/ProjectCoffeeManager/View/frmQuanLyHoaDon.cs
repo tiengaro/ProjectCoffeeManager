@@ -78,22 +78,28 @@ namespace ProjectCoffeeManager.View
             Application.Exit();
         }
 
+        /// <summary>
+        /// Hàm xử lý sự kiện chọn 1 item trong combobox Loại Sản Phẩm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbbLoaiSanPham_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            //Xóa các item trong listview thực đơn
             lstThucDon.Items.Clear();
-
+            //Lấy mã sản phẩm tự comboxbox đang chọn
             string MaSP = cbbLoaiSanPham.SelectedValue.ToString();
-
+            //đưa dữ liệu thông tin sản phẩm theo mã sản phẩm vào bảng tạm dt
             DataTable dt = ControlSanPham.getSanPhambyMaLoaiSP(MaSP);
-
+            //Hàm show dữ liệu lên listview Thực đơn
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-
+                //đưa dữ liệu từ sql lên 1 listview tạm
                 ListViewItem item = new ListViewItem(dt.Rows[i].ItemArray[0].ToString());
                 item.SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
                 item.SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
                 item.SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
-
+                //add listview tạm đó vào listview thực đơn
                 lstThucDon.Items.Add(item);
             }
         }
