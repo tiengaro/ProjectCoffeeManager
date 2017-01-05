@@ -156,11 +156,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Magneto", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(341, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(329, 32);
+            this.label1.Size = new System.Drawing.Size(292, 31);
             this.label1.TabIndex = 41;
             this.label1.Text = "ConceptSoft\'s Coffee";
             // 
@@ -379,6 +379,7 @@
             this.btnThemMon.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnThemMon.TabIndex = 47;
             this.btnThemMon.Text = "Tạo Hóa Đơn";
+            this.btnThemMon.Click += new System.EventHandler(this.btnThemMon_Click_1);
             // 
             // btnXoa
             // 
