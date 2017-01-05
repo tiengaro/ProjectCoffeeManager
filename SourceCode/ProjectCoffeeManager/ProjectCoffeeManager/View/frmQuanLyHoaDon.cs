@@ -103,5 +103,70 @@ namespace ProjectCoffeeManager.View
                 lstThucDon.Items.Add(item);
             }
         }
+
+        /// <summary>
+        /// xử lý sự kiện khi click button Thêm Món
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnThemMon_Click(object sender, EventArgs e)
+        {
+            //Câu lệnh chuyển đổi chức năng cho 1 button thêm món
+            if (btnThemMon.Text == "Tạo Hóa Đơn")
+            {
+                //Câu lệnh tạo hóa đớn vào csdl
+
+                lblThongBao.Text = "Tổng tiền: 0 đồng";
+                //Chuyển button Tạo hóa đơn thành Thêm Món
+                btnThemMon.Text = "Thêm Món";
+                //lấy mã hóa đợn hiện đang order
+
+                btnThemMon.Enabled = false;
+                btnHuyHD.Enabled = true;
+                return;
+            }
+            else
+            {
+                ThemMon();
+            }
+        }
+
+        /// <summary>
+        /// Hàm xử lý button thêm món
+        /// </summary>
+        public void ThemMon()
+        {
+
+                //lấy vị trí chọn hiện tại
+                int vitrichon = lstThucDon.SelectedIndices[0];
+                //Lấy thông tin sản phẩm tự vị trí chọn
+
+                int soluong = int.Parse(nudSoLuong.Value.ToString());
+                int giaban = int.Parse(lstThucDon.Items[vitrichon].SubItems[3].Text);
+                int thanhtien;
+                //nếu có thì xử lý các câu lệnh
+                    for (int i = 0; i < lstHoaDon.Items.Count; i++)
+                        if (lstHoaDon.Items[i].SubItems[0].Text == lstThucDon.Items[vitrichon].SubItems[0].Text)
+                        {
+                            int sl = int.Parse(nudSoLuong.Value.ToString()) + int.Parse(lstHoaDon.Items[i].SubItems[3].Text);
+                            thanhtien = sl * giaban;
+                            lstHoaDon.Items[i].SubItems[3].Text = sl.ToString();
+                            lstHoaDon.Items[i].SubItems[4].Text = thanhtien.ToString();
+                            nudSoLuong.Value = 1;
+                            return;
+                        }
+                    ListViewItem item = new ListViewItem(lstThucDon.Items[vitrichon].SubItems[0].Text);
+                    item.SubItems.Add(lstThucDon.Items[vitrichon].SubItems[1].Text);
+                    item.SubItems.Add(lstThucDon.Items[vitrichon].SubItems[2].Text);
+                    item.SubItems.Add(nudSoLuong.Value.ToString());
+                    thanhtien = int.Parse(nudSoLuong.Value.ToString()) * giaban;
+                    item.SubItems.Add(thanhtien.ToString());
+                    lstHoaDon.Items.Add(item);
+            
+            nudSoLuong.Value = 1;
+            btnThemMon.Enabled = false;
+            btnThanhToan.Enabled = true;
+
+        }
     }
 }
