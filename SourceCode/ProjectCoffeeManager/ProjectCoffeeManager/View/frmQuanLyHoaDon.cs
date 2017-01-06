@@ -189,6 +189,55 @@ namespace ProjectCoffeeManager.View
     }
 
     /// <summary>
+    /// Hàm xử lý sự kiện click vào button Thanh Toán
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void btnThanhToan_Click(object sender, EventArgs e)
+    {
+        //Đưa thông báo cho người dùng có chắc chắn
+        DialogResult tl = MessageBox.Show("Bạn có muốn thanh toán.", "Thông báo.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        if (tl == DialogResult.Yes)
+        {
+            Control.ControlHoaDon.insertHoaDon(DateTime.Now.ToShortDateString());
+            mahd = LayMaHD();
+            for (int i = 0; i < lstHoaDon.Items.Count; i++)
+            {
+                Control.ControlChiTietHoaDon.insertChiTietHoaDon(mahd, lstHoaDon.Items[i].SubItems[0].Text, lstHoaDon.Items[i].SubItems[3].Text, lstHoaDon.Items[i].SubItems[4].Text);
+            }
+
+            //Xóa hết item trong listview thực đơn
+            lstHoaDon.Items.Clear();
+            //Chuyển chức năng cho button thêm món thành tạo hóa đơn
+            btnThemMon.Text = "Tạo Hóa Đơn";
+            btnThemMon.Enabled = true;
+            btnThanhToan.Enabled = false;
+            btnXoa.Enabled = false;
+            btnHuyHD.Enabled = false;
+            lblThongBao.Text = "";
+            frmThanhToan frm = new frmThanhToan();
+            frm.Show();
+        }
+
+    }
+
+    /// <summary>
+    /// Hàm lấy mã hóa đơn đang order
+    /// </summary>
+    /// <returns>trả về mã hóa đơn đang order</returns>
+    private string LayMaHD()
+    {
+        //lấy dữ liệu hóa đơn từ csdl lên
+        DataTable hd = Control.ControlHoaDon.getHoaDon();
+        //Lấy hóa đơn cuối cùng trong bảng 
+        int vitrihd = hd.Rows.Count - 1;
+        //Lấy mã hóa đơn đang hiện hành
+        string mahd = hd.Rows[vitrihd].ItemArray[0].ToString();
+        //trả về mã hóa đơn đó
+        return mahd;
+    }
+
+    /// <summary>
     /// Hàm xử lý sự kiện khi click vào button xóa
     /// </summary>
     /// <param name="sender"></param>
