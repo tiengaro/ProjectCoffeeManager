@@ -335,4 +335,18 @@ namespace ProjectCoffeeManager.View
         lblThongBao.Text = "Tổng tiền: " + Control.ControlHoaDon.getTongTienbyMaHD(mahd) + " đồng.";
         nudSoLuong.Value = 1;
     }
+    private void btnHuyHD_Click(object sender, EventArgs e)
+    {
+        if (MessageBox.Show("Bạn chắc chắn muốn hủy hóa đơn.", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+        {
+            lstHoaDon.Items.Clear();
+            btnThemMon.Text = "Tạo Hóa Đơn";
+            btnThemMon.Enabled = true;
+            btnThanhToan.Enabled = false;
+            lblThongBao.ResetText();
+            btnHuyHD.Enabled = false;
+            writeXML();
+        }
+    }
+
 }
