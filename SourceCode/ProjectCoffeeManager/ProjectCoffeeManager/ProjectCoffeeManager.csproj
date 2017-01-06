@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\ControlChiTietHoaDon.cs" />
     <Compile Include="Control\ControlHoaDon.cs" />
     <Compile Include="Control\ControlLoaiSanPham.cs" />
     <Compile Include="Control\ControlSanPham.cs" />
