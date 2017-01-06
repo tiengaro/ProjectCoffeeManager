@@ -61,7 +61,7 @@ namespace ProjectCoffeeManager.View
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            //xử lý nếu chưa nhập tên loại sản phẩm
+            //Kiểm tra nếu người dùng chưa nhập tên loại sản phẩm vào textbox mà click button Thêm
             if (txtTenLoai.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập tên loại sản phẩm cần thêm.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
