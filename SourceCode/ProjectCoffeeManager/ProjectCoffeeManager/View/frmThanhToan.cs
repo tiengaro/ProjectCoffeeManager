@@ -17,6 +17,12 @@ namespace ProjectCoffeeManager.View
             InitializeComponent();
         }
 
-        
+        private void frmThanhToan_Load(object sender, EventArgs e)
+        {
+
+            this.getChiTietHoaDonByMaHoaDonTableAdapter.Fill(this.quanLyCafeDataSet.GetChiTietHoaDonByMaHoaDon, int.Parse(frmQuanLyHoaDon.mahd));
+            this.reportViewer1.RefreshReport();
+
+        }
     }
 }
