@@ -188,6 +188,46 @@ namespace ProjectCoffeeManager.View
         }
     }
 
+    /// <summary>
+    /// Hàm xử lý sự kiện khi click vào button xóa
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void btnXoa_Click(object sender, EventArgs e)
+    {
+        xoa();
+        btnXoa.Enabled = false;
+    }
+
+    /// <summary>
+    /// Hàm xóa 1 sản phẩm trong hóa đơn
+    /// </summary>
+    private void xoa()
+    {
+        //đếm xem có bao nhiêu dòng được chợn
+        int sodongchon = lstHoaDon.SelectedIndices.Count;
+        //nếu có dòng được chọn
+        if (sodongchon == 1)
+        {
+            //hỏi xem người dùng có chắc chắn muốn xóa
+            DialogResult tl = MessageBox.Show("Bạn chắc chắn muốn xóa.", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            //nếu chắc chắn thì xử lý tiếp
+            if (tl == DialogResult.Yes)
+            {
+                sodongchon = lstHoaDon.SelectedIndices.Count;
+                for (int i = 0; i < sodongchon; i++)
+                {
+                    int vitrichon = lstHoaDon.SelectedIndices[i];
+                    lstHoaDon.Items.RemoveAt(vitrichon);
+                }
+
+            }
+        }
+        //Hàm xử lý nếu người dùng chưa chọn sản phẩm trong hóa đơn
+        else
+            MessageBox.Show("Bạn chưa chọn món để thêm vào hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+    }
 
     private void nudSoLuong_KeyPress(object sender, KeyPressEventArgs e)
     {
@@ -195,5 +235,35 @@ namespace ProjectCoffeeManager.View
         {
             e.Handled = true;
         }
+    }
+
+    private void toolStripButton2_Click(object sender, EventArgs e)
+    {
+        frmQuanLyLoaiSanPham frm = new frmQuanLyLoaiSanPham();
+        //this.Hide();
+        frm.Show();
+    }
+
+    private void toolStripButton1_Click(object sender, EventArgs e)
+    {
+        frmQuanLySanPham frm = new frmQuanLySanPham();
+        //this.Hide();
+        frm.Show();
+    }
+
+    private void toolStripButton4_Click(object sender, EventArgs e)
+    {
+        frmThongTin frm = new frmThongTin();
+        frm.Show();
+    }
+
+    private void lstThucDon_Click(object sender, EventArgs e)
+    {
+        btnThemMon.Enabled = true;
+    }
+
+    private void lstHoaDon_Click(object sender, EventArgs e)
+    {
+        btnXoa.Enabled = true;
     }
 }
