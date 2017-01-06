@@ -348,5 +348,55 @@ namespace ProjectCoffeeManager.View
             writeXML();
         }
     }
+    private void writeXML()
+    {
+        XmlTextWriter xtw = new XmlTextWriter("ThongTinHoaDon.xml", null);
+        xtw.Formatting = Formatting.Indented;
+        xtw.WriteStartDocument();
+        // write to element HoTen
+        xtw.WriteStartElement("ThongTinHoaDon");
+        //xtw.WriteAttributeString(;
+        for (int j = 0; j < lstHoaDon.Items.Count; j++)
+        {
+            xtw.WriteElementString("MaSP", lstHoaDon.Items[j].SubItems[0].Text);
+            xtw.WriteElementString("TenSP", lstHoaDon.Items[j].SubItems[1].Text);
+            xtw.WriteElementString("LoaiSP", lstHoaDon.Items[j].SubItems[2].Text);
+            xtw.WriteElementString("SoLuong", lstHoaDon.Items[j].SubItems[3].Text);
+            xtw.WriteElementString("GiaThanh", lstHoaDon.Items[j].SubItems[4].Text);
+        }
 
+        xtw.WriteEndElement();
+        xtw.WriteEndDocument();
+        xtw.Flush();
+        xtw.Close();
+    }
+    private void readXML()
+    {
+        int i = 0;
+        ListViewItem item = new ListViewItem();
+        string fileName = "ThongTinHoaDon.xml";
+        // Tạo một đối tượng TextReader mới
+        XmlTextReader xtr = new XmlTextReader(fileName);
+        while (xtr.Read())
+        {
+            if (xtr.NodeType == XmlNodeType.Text)
+            {
+                if (i == 0)
+                {
+                    item = new ListViewItem(xtr.Value);
+                }
+                else if (i == 4)
+                {
+                    item.SubItems.Add(xtr.Value);
+                    lstHoaDon.Items.Add(item);
+                    i = -1;
+                }
+                else
+                {
+                    item.SubItems.Add(xtr.Value);
+                }
+                i++;
+            }
+        }
+    }
 }
