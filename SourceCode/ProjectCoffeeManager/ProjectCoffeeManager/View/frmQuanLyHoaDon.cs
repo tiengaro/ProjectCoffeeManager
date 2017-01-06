@@ -136,7 +136,12 @@ namespace ProjectCoffeeManager.View
         /// </summary>
         public void ThemMon()
         {
-
+            //nếu button là thêm món thì xử lý
+            //lấy số dòng chọn
+            int sodongchon = lstThucDon.SelectedIndices.Count;
+            //nếu có chọn trong listview thực đơn thì xử lý
+            if (sodongchon == 1)
+            {
                 //lấy vị trí chọn hiện tại
                 int vitrichon = lstThucDon.SelectedIndices[0];
                 //Lấy thông tin sản phẩm tự vị trí chọn
@@ -144,7 +149,7 @@ namespace ProjectCoffeeManager.View
                 int soluong = int.Parse(nudSoLuong.Value.ToString());
                 int giaban = int.Parse(lstThucDon.Items[vitrichon].SubItems[3].Text);
                 int thanhtien;
-                //nếu có thì xử lý các câu lệnh
+                
                     for (int i = 0; i < lstHoaDon.Items.Count; i++)
                         if (lstHoaDon.Items[i].SubItems[0].Text == lstThucDon.Items[vitrichon].SubItems[0].Text)
                         {
@@ -162,7 +167,7 @@ namespace ProjectCoffeeManager.View
                     thanhtien = int.Parse(nudSoLuong.Value.ToString()) * giaban;
                     item.SubItems.Add(thanhtien.ToString());
                     lstHoaDon.Items.Add(item);
-            
+            }
             nudSoLuong.Value = 1;
             btnThemMon.Enabled = false;
             btnThanhToan.Enabled = true;
