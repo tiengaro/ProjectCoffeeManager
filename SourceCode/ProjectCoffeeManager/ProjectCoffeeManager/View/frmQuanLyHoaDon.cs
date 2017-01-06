@@ -132,6 +132,19 @@ namespace ProjectCoffeeManager.View
         }
 
         /// <summary>
+        /// Hàm xử lý sự kiện nếu double click vào listview thực đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lstThucDon_DoubleClick(object sender, EventArgs e)
+        {
+
+            
+                ThemMon();
+            
+        }
+
+        /// <summary>
         /// Hàm xử lý button thêm món
         /// </summary>
         public void ThemMon()
@@ -174,6 +187,7 @@ namespace ProjectCoffeeManager.View
 
         }
     }
+
 
     private void nudSoLuong_KeyPress(object sender, KeyPressEventArgs e)
     {
