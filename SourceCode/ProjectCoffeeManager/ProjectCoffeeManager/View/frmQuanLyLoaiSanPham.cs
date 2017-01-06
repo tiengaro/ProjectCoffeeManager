@@ -66,13 +66,13 @@ namespace ProjectCoffeeManager.View
             {
                 MessageBox.Show("Bạn chưa nhập tên loại sản phẩm cần thêm.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            //Xử lý xem sản phẩm đó đã có trong danh sách sản phẩm chưa
+            //Kiểm tra xem loại sản phẩm đó đã có trong danh sách loại sản phẩm chưa, nếu đã có thì hiển thị thông báo 
             else if (!KiemTraLoaiSanPham())
             {
                 MessageBox.Show("Loại Sản phẩm bạn vừa thêm đã có sẵn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 txtTenLoai.Clear();
             }
-            //Nếu tất cả trường hợp trên đều không có thì cho phép người dùng thêm loại sản phẩm
+            //Nếu kiểm tra tất cả trường hợp trên đều không có thì cho phép người dùng thêm loại sản phẩm đó
             else
             {
                 DialogResult tl = MessageBox.Show("Bạn có muốn thêm loại sản phầm.", "Thông báo.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
