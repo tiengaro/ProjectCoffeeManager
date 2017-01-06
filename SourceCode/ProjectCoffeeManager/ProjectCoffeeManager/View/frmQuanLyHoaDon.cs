@@ -315,4 +315,24 @@ namespace ProjectCoffeeManager.View
     {
         btnXoa.Enabled = true;
     }
+    /// <summary>
+    /// Hàm Load thông tin hóa đơn đang hiện hành
+    /// </summary>
+    private void LoadCTHD()
+    {
+        lstHoaDon.Items.Clear();
+        DataTable dt = Control.ControlChiTietHoaDon.getChiTietHoaDonbyMaHD(mahd);
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            ListViewItem item = new ListViewItem(dt.Rows[i].ItemArray[0].ToString());
+            item.SubItems.Add(dt.Rows[i].ItemArray[1].ToString());
+            item.SubItems.Add(dt.Rows[i].ItemArray[2].ToString());
+            item.SubItems.Add(dt.Rows[i].ItemArray[3].ToString());
+            item.SubItems.Add(dt.Rows[i].ItemArray[4].ToString());
+
+            lstHoaDon.Items.Add(item);
+        }
+        lblThongBao.Text = "Tổng tiền: " + Control.ControlHoaDon.getTongTienbyMaHD(mahd) + " đồng.";
+        nudSoLuong.Value = 1;
+    }
 }
