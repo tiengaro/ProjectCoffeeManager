@@ -153,6 +153,7 @@
             this.btnLogin.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnLogin.TabIndex = 30;
             this.btnLogin.Text = "Đăng Nhập";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnClose
             // 
@@ -165,6 +166,7 @@
             this.btnClose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnClose.TabIndex = 31;
             this.btnClose.Text = "Thoát";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmDangNhap
             // 
