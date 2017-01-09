@@ -16,7 +16,7 @@ namespace ProjectCoffeeManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new View.frmQuanLyHoaDon());
+            Application.Run(new View.frmQuanLyLoaiSanPham());
         }
     }
 }

@@ -151,5 +151,31 @@ namespace ProjectCoffeeManager.View
             btnXoa.Enabled = false;
             
         }
+        /// Hàm xử lý sự kiện double click vào listview để xóa
+        private void lstDanhSach_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                int sodongchon = lstDanhSach.SelectedIndices.Count;
+                //xử lý nếu đã chọn 1 loại sản phẩm trong danh sách loại sản phẩm
+                if (sodongchon == 1)
+                {
+                    int vitrichon = lstDanhSach.SelectedIndices[0];
+                    string masp = lstDanhSach.Items[vitrichon].SubItems[0].Text;
+                    DialogResult tl = MessageBox.Show("Bạn có muốn xóa loại sản phẩm.", "Cảnh báo.", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (tl == DialogResult.Yes)
+                    {
+                        Control.ControlLoaiSanPham.deleteLoaiSanPham(txtMaLoai.Text);
+                        lstDanhSach.Items.Clear();
+                        loadLoaiSP();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Không thể xóa loại sản phẩm này.", "Cảnh báo.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
     }
 }
